@@ -3,7 +3,7 @@ import axios from 'axios';
 import Fuse from 'fuse.js';
 
 const Orders = () => {
-  const [data, setDate] = useState([]);
+  const [data, setData] = useState([]);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Orders = () => {
       .get('http://localhost:8000/api/orders/')
       .then((response) => {
         const allData = response.data;
-        setDate(allData);
+        setData(allData);
       })
       .catch((error) => console.log(error));
   };
