@@ -3,8 +3,8 @@ import axios from 'axios';
 import Fuse from 'fuse.js';
 
 const Orders = () => {
-  const [data, getData] = useState([]);
-  const [query, updateQuery] = useState('');
+  const [data, setDate] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     getAllData();
@@ -15,7 +15,7 @@ const Orders = () => {
       .get('http://localhost:8000/api/orders/')
       .then((response) => {
         const allData = response.data;
-        getData(allData);
+        setDate(allData);
       })
       .catch((error) => console.log(error));
   };
@@ -33,7 +33,7 @@ const Orders = () => {
       : data;
 
   const onSearch = ({ currentTarget }) => {
-    updateQuery(currentTarget.value);
+    setQuery(currentTarget.value);
   };
   return (
     <>
