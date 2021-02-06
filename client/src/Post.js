@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Post = () => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState({});
   const [selected, setSelected] = useState('margarita');
   const [payment, setPayment] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -17,14 +17,15 @@ const Post = () => {
     axios
       .post('http://localhost:8000/api/orders/', data)
       .then((response) => {
+        setSuccess(true);
         console.log(response);
         // we can do sth with the data later
       })
       .catch((error) => {
+        setSuccess(false);
         console.log(error);
         // errorhandling could be done later
       });
-    setSuccess(true);
   };
 
   return (
