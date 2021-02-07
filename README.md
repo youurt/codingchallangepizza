@@ -3,7 +3,7 @@
 
 ```bash
 pip install -r requirements.txt
-cd client
+cd server
 python manage.py makemigrations boards 
 python manage.py migrate boards  
 python manage.py runserver 
