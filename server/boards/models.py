@@ -10,7 +10,7 @@ PIZZA = (("diavolo", "diavolo"), ("salami", "salami"),
 
 class Order(models.Model):
     pizza_order_address = models.CharField(max_length=255)
-    pizza_order_email = models.CharField(max_length=255)
+    pizza_order_email = models.EmailField(max_length=255)
     pizza_orderer = models.CharField(
         max_length=255, default="customer_exmample")
     pizza_variation = models.CharField(
